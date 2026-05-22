@@ -23,12 +23,14 @@ let onDelete = false;
 let rows = 16;
 let columns = 16;
 
+let borderOn = true;
+
 let isLeftMouseDown = false;
 
 const GenerateColorPalette = (() => {
     const colorPalette = document.querySelector("#colorPalette");
 
-    for (let i = 0; i <= 16; i++){
+    for (let i = 0; i <= 18; i++){
 
         const color = document.createElement("div");
         color.className = "color";
@@ -36,11 +38,26 @@ const GenerateColorPalette = (() => {
         if (i < 15){
             color.style.backgroundColor = colors[i];
         }
-        else if (i < 16){
+        else if (i === 15){
+            color.style.background = "url('assets/border.svg')";
+            color.style.backgroundPosition = "center";
+            color.style.backgroundSize = "cover";
+            color.style.backgroundRepeat = "no-repeat";
+            color.className = "border";
+        }
+        else if (i === 16){
+            color.style.background = "url('assets/fill.svg')";
+            color.style.backgroundPosition = "center";
+            color.style.backgroundSize = "cover";
+            color.style.backgroundRepeat = "no-repeat";
+            color.className = "fill";
+        }
+        else if (i === 17){
             color.style.background = "url('assets/eraser.svg')";
             color.style.backgroundPosition = "center";
             color.style.backgroundSize = "cover";
             color.style.backgroundRepeat = "no-repeat";
+            color.className = "erase";
         }
         else {
             color.style.background = "url('assets/delete.svg')";
@@ -48,6 +65,7 @@ const GenerateColorPalette = (() => {
             color.style.backgroundPosition = "center";
             color.style.backgroundSize = "cover";
             color.style.backgroundRepeat = "no-repeat";
+            color.className = "delete"
         }
 
         color.style.padding = "1rem";
@@ -56,13 +74,31 @@ const GenerateColorPalette = (() => {
 
         color.addEventListener("click",() => {
             console.log(color.style.backgroundColor);
-            if (color.style.backgroundColor === "tomato"){
-                const removeGrid = document.querySelector("#gridHolder");
-                removeGrid.remove();
-                GenerateGrid(rows, columns);
-            }
-            else if (color.style.backgroundSize === "cover"){
+            if (color.className === "delete"){
+                wipeGrid();
+                GenerateGrid();            }
+            else if (color.className === "erase"){
                 currentColor = "white";
+            }
+            else if (color.className === "fill"){
+                wipeGrid();
+                GenerateGrid(currentColor);
+            }
+            else if (color.className === "border"){
+                const squares = document.querySelectorAll('.square');
+
+                if (borderOn){
+                    borderOn = false;
+                    squares.forEach(div => {
+                        div.style.border = "none";
+                    });
+                }
+                else {
+                    borderOn = true;
+                    squares.forEach(div => {
+                        div.style.border = "1px solid #EAEFEF";
+                    });
+                }
             }
             else{
                 currentColor = color.style.backgroundColor; 
@@ -73,7 +109,12 @@ const GenerateColorPalette = (() => {
     }
 });
 
-const GenerateGrid = ((rows, columns) => {
+const wipeGrid = (() => {
+    const removeGrid = document.querySelector("#gridHolder");
+    removeGrid.remove();
+});
+
+const GenerateGrid = ((color) => {
     const grid = document.createElement("div");
     grid.id = "gridHolder";
     grid.style.display = "grid";
@@ -89,6 +130,8 @@ const GenerateGrid = ((rows, columns) => {
 
         const square = document.createElement("div");
         square.className = "square";
+
+        square.style.backgroundColor = color;
 
         square.addEventListener("mousedown", () => {
             isLeftMouseDown = true;

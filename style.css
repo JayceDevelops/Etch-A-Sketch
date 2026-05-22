@@ -42,11 +42,11 @@ main {
 }
 
 #colorPalette {
-    width: 50%;
+    width: 60%;
     height: 5vh;
     background-color: #EAEFEF;
     display: grid;
-    grid-template-columns: repeat(17, auto);
+    grid-template-columns: repeat(19, auto);
     gap: 3px;
     padding: 0.5rem;
 }
@@ -79,7 +79,6 @@ main {
 }
 
 .square {
-    background-color: white;
     border: 1px solid #EAEFEF;
 }
 .cause-font {
