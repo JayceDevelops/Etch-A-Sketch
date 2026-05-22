@@ -11,3 +11,10 @@ Below is the main interface of the application, featuring a custom interactive g
 ### High-Resolution Custom Grid Layouts
 The application features structural, on-the-fly resolution restructuring. Users can alter grid configurations (e.g., 16x16 up to 64x64 grids) instantly, reallocating node densities dynamically via DOM manipulations:
 <img width="1920" height="998" alt="image" src="https://github.com/user-attachments/assets/79001994-6637-491a-8e08-61746e081985" />
+
+### Remove Borders With One Click
+From this:
+<img width="1920" height="1002" alt="image" src="https://github.com/user-attachments/assets/7ec385c6-d5dd-4ce3-a1fc-28a9959ba299" />
+To this: 
+<img width="1920" height="1000" alt="image" src="https://github.com/user-attachments/assets/b3907b7e-af4e-427c-a856-5f939b3ebd29" />
+
