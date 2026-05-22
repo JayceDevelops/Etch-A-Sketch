@@ -17,4 +17,10 @@ From this:
 <img width="1920" height="1002" alt="image" src="https://github.com/user-attachments/assets/7ec385c6-d5dd-4ce3-a1fc-28a9959ba299" />
 To this: 
 <img width="1920" height="1000" alt="image" src="https://github.com/user-attachments/assets/b3907b7e-af4e-427c-a856-5f939b3ebd29" />
+Or this:
+<img width="1920" height="1002" alt="image" src="https://github.com/user-attachments/assets/434bae08-5ac3-48e1-aa89-bc1002073716" />
+To this:
+<img width="1920" height="998" alt="image" src="https://github.com/user-attachments/assets/332a62ac-7201-4da4-8f84-eeeae663ad69" />
+
+
 
